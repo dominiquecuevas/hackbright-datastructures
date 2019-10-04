@@ -13,13 +13,24 @@ def unique_houses(filename):
     ["Dumbledore's Army", 'Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin']
 
     """
-
     houses = set()
 
-    # Code goes here
+    cohort_data = open(filename)
+    for line in cohort_data:
+        person = line.split("|")
+        first_name, last_name, house, instructor, cohort = person
+        # house = person[2]
+        if house != '':
+            houses.add(house)
 
+
+    
+
+    # Code goes here
+    cohort_data.close()
     return houses
 
+unique_houses("cohort_data.txt") 
 
 def sort_by_cohort(filename):
     """TODO: Return a list of all cohort lists, including ghosts but not instructors.
