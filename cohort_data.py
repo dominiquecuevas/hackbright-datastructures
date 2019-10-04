@@ -19,8 +19,9 @@ def unique_houses(filename):
     for line in cohort_data:
         person = line.split("|")
         first_name, last_name, house, instructor, cohort = person
-        # house = person[2]
-        if house != '':
+        # checks for people that don't have houses
+        # i.e. instructors, ghosts
+        if house != '':     
             houses.add(house)
     
 
@@ -87,10 +88,10 @@ def sort_by_cohort(filename):
     all_students.append(ghosts)
 
     # Code goes here
+    cohort_data.close()
 
     return all_students
 
-sort_by_cohort("cohort_data.txt")
 
 def hogwarts_by_house(filename):
     """TODO: Sort students into lists by house and return all lists in one list.
