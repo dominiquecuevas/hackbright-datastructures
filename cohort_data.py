@@ -122,7 +122,6 @@ def hogwarts_by_house(filename):
     for line in cohort_data:
         line = line.rstrip()
         person = line.split("|")
-
         first_name, last_name, house, instructor, cohort = person
 
         # check which house then append last name to its list
@@ -175,7 +174,19 @@ def all_students_tuple_list(filename):
 
     student_list = []
 
+
+
     # Code goes here
+    cohort_data = open(filename)
+    for line in cohort_data:
+        line = line.rstrip()
+        person = line.split("|")
+        first_name, last_name, house, instructor, cohort = person
+        full_name = first_name + " " + last_name
+        
+        if house != '':
+            student_info = (full_name, house, instructor, cohort)
+            student_list.append(student_info)
 
     return student_list
 
